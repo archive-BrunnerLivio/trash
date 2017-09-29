@@ -6,6 +6,7 @@ const path = require('path');
 const http = require('http').createServer(app);
 const chalk = require('chalk');
 const bodyParser = require('body-parser');
+const otp = require('otp');
 
 // Local dependencies
 const APP_CONFIG = require('./app.config');
