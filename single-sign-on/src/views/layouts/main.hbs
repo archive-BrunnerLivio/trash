@@ -8,10 +8,29 @@
     <title>Much secure Website</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="static/css/layout.css">
+    <meta name="google-signin-client_id" content="329324062910-8d29bv701fu93oqt3j7on296ej9mpibj.apps.googleusercontent.com">
 </head>
 
 <body>
     {{{body}}}
+
+    <script src=" https://apis.google.com/js/platform.js " async defer></script>
+    <script>
+        function onSignIn() {
+            const id_token = googleUser.getAuthResponse().id_token;
+
+            const profile = googleUser.getBasicProfile();
+            console.log(profile);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'http://localhost:8080/SSOTokenSignIn');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = () => {
+                console.log('Signed in as ' + xhr.responseText);
+            };
+            xhr.send('idtoken=' + id_token);
+        }
+    </script>
 </body>
 
 </html>

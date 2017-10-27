@@ -44,6 +44,10 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 
+app.post('/SSOTokenSignIn', (req, res) => {
+
+});
+
 http.listen(PORT, HOST, () => {
     console.log(`Up and running on ` + chalk.blue(`http://${HOST}:${PORT}`));
 });
